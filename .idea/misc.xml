@@ -3,13 +3,16 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/Pooja/AndroidStudioProjects/FoodOrderApp/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.1565" />
         <entry key="..\:/Users/Pooja/AndroidStudioProjects/FoodOrderApp/app/src/main/res/drawable/btn_background.xml" value="0.2065" />
         <entry key="..\:/Users/Pooja/AndroidStudioProjects/FoodOrderApp/app/src/main/res/drawable/edittext_background.xml" value="0.2065" />
+        <entry key="..\:/Users/Pooja/AndroidStudioProjects/FoodOrderApp/app/src/main/res/drawable/ic_launcher_background.xml" value="0.1565" />
         <entry key="..\:/Users/Pooja/AndroidStudioProjects/FoodOrderApp/app/src/main/res/drawable/menus.xml" value="0.171" />
         <entry key="..\:/Users/Pooja/AndroidStudioProjects/FoodOrderApp/app/src/main/res/layout/activity_delete_later.xml" value="0.25" />
         <entry key="..\:/Users/Pooja/AndroidStudioProjects/FoodOrderApp/app/src/main/res/layout/activity_detail.xml" value="0.264" />
         <entry key="..\:/Users/Pooja/AndroidStudioProjects/FoodOrderApp/app/src/main/res/layout/activity_main.xml" value="0.264" />
-        <entry key="..\:/Users/Pooja/AndroidStudioProjects/FoodOrderApp/app/src/main/res/layout/activity_order.xml" value="0.2" />
+        <entry key="..\:/Users/Pooja/AndroidStudioProjects/FoodOrderApp/app/src/main/res/layout/activity_order.xml" value="0.264" />
+        <entry key="..\:/Users/Pooja/AndroidStudioProjects/FoodOrderApp/app/src/main/res/layout/appbar.xml" value="0.23958333333333334" />
         <entry key="..\:/Users/Pooja/AndroidStudioProjects/FoodOrderApp/app/src/main/res/layout/order_sample.xml" value="0.4" />
         <entry key="..\:/Users/Pooja/AndroidStudioProjects/FoodOrderApp/app/src/main/res/layout/sample_mainfood.xml" value="0.4" />
         <entry key="..\:/Users/Pooja/AndroidStudioProjects/FoodOrderApp/app/src/main/res/menu/menu.xml" value="0.16510416666666666" />

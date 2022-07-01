@@ -2,6 +2,7 @@ package com.example.foodorderapp;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 import androidx.recyclerview.widget.LinearLayoutManager;
 
 import android.app.Activity;
@@ -11,6 +12,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.Toast;
 
@@ -23,6 +25,7 @@ import com.example.foodorderapp.databinding.ActivityMainBinding;
 import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
+    private Toolbar toolbar;
 
     ActivityMainBinding binding;
 //    Button order2;
@@ -33,6 +36,22 @@ public class MainActivity extends AppCompatActivity {
 
         binding = ActivityMainBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
+
+        toolbar=findViewById(R.id.myToolBar);
+
+        ImageView leftIcon = findViewById(R.id.left_icon);
+
+        leftIcon.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Toast.makeText(MainActivity.this, "you clicked", Toast.LENGTH_SHORT).show();
+                startActivity(new Intent(MainActivity.this, OrderActivity.class));
+            }
+        });
+
+
+
+        setSupportActionBar(toolbar);
 
         ArrayList<MainModel> list =new ArrayList<>();
 //        order2=(Button) findViewById(R.id.order2);
@@ -75,25 +94,25 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.menu, menu);
-        return super.onCreateOptionsMenu(menu);
-    }
+//    @Override
+//    public boolean onCreateOptionsMenu(Menu menu) {
+//        getMenuInflater().inflate(R.menu.menu, menu);
+//        return super.onCreateOptionsMenu(menu);
+//    }
 
-    @Override
-    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
-
-        if (item.getItemId() == R.id.order1) {
-            Toast.makeText(this, "success", Toast.LENGTH_SHORT).show();
-//            startActivity(new Intent(MainActivity.this, OrderActivity.class));
-            Intent i = new Intent(MainActivity.this, OrderActivity.class);
-            startActivity(i);
-        } else {
-            Toast.makeText(this, "error", Toast.LENGTH_SHORT).show();
-        }
-         return super.onOptionsItemSelected(item);
-
-    }
+//    @Override
+//    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+//
+//        if (item.getItemId() == R.id.order1) {
+//            Toast.makeText(this, "success", Toast.LENGTH_SHORT).show();
+////            startActivity(new Intent(MainActivity.this, OrderActivity.class));
+//            Intent i = new Intent(MainActivity.this, OrderActivity.class);
+//            startActivity(i);
+//        } else {
+//            Toast.makeText(this, "error", Toast.LENGTH_SHORT).show();
+//        }
+//         return super.onOptionsItemSelected(item);
+//
+//    }
 }
 
