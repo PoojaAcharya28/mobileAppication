@@ -35,23 +35,24 @@ public class MainAdapter extends RecyclerView.Adapter<MainAdapter.viewholder>{
     }
 
     @Override
-    public void onBindViewHolder(@NonNull viewholder holder, int position) {
+    public void onBindViewHolder(@NonNull final viewholder holder, int position) {
         final MainModel model = list.get(position);
         holder.foodImage.setImageResource(model.getImage());
         holder.mainName.setText(model.getName());
         holder.price.setText(model.getPrice());
         holder.description.setText(model.getDescription());
 
-        holder.itemView.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
+        holder.itemView.setOnClickListener((view) -> {
+
+
                 Intent intent=new Intent(context, DetailActivity.class);
                 intent.putExtra("image",model.getImage());
                 intent.putExtra("price",model.getPrice());
                 intent.putExtra("desc",model.getDescription());
                 intent.putExtra("name",model.getName());
+                intent.putExtra("type",1);
                 context.startActivity(intent);
-            }
+
         });
 
     }

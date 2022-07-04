@@ -21,16 +21,19 @@ public class OrderActivity extends AppCompatActivity {
         binding=ActivityOrderBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
-        ArrayList<OrdersModel> list=new ArrayList<>();
-        list.add(new OrdersModel(R.drawable.tyu,"cheese Burger","4","55443322"));
-        list.add(new OrdersModel(R.drawable.tyu,"cheese Burger","4","55443322"));
-        list.add(new OrdersModel(R.drawable.tyu,"cheese Burger","4","55443322"));
-        list.add(new OrdersModel(R.drawable.tyu,"cheese Burger","4","55443322"));
-        list.add(new OrdersModel(R.drawable.tyu,"cheese Burger","4","55443322"));
-        list.add(new OrdersModel(R.drawable.tyu,"cheese Burger","4","55443322"));
-        list.add(new OrdersModel(R.drawable.tyu,"cheese Burger","4","55443322"));
-        list.add(new OrdersModel(R.drawable.tyu,"cheese Burger","4","55443322"));
-        list.add(new OrdersModel(R.drawable.tyu,"cheese Burger","4","55443322"));
+
+        DbHelper helper=new DbHelper(this);
+        ArrayList<OrdersModel> list=helper.getOrders();
+
+//        list.add(new OrdersModel(R.drawable.tyu,"cheese Burger","4","55443322"));
+//        list.add(new OrdersModel(R.drawable.tyu,"cheese Burger","4","55443322"));
+//        list.add(new OrdersModel(R.drawable.tyu,"cheese Burger","4","55443322"));
+//        list.add(new OrdersModel(R.drawable.tyu,"cheese Burger","4","55443322"));
+//        list.add(new OrdersModel(R.drawable.tyu,"cheese Burger","4","55443322"));
+//        list.add(new OrdersModel(R.drawable.tyu,"cheese Burger","4","55443322"));
+//        list.add(new OrdersModel(R.drawable.tyu,"cheese Burger","4","55443322"));
+//        list.add(new OrdersModel(R.drawable.tyu,"cheese Burger","4","55443322"));
+//        list.add(new OrdersModel(R.drawable.tyu,"cheese Burger","4","55443322"));
 
 
         OrdersAdapter adapter=new OrdersAdapter(list,this);
