@@ -3,7 +3,11 @@ package com.example.foodorderapp;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.ImageView;
+import android.widget.Toast;
 
 import com.example.foodorderapp.Adapters.OrdersAdapter;
 import com.example.foodorderapp.Models.OrdersModel;
@@ -20,6 +24,17 @@ public class OrderActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         binding=ActivityOrderBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
+
+
+        ImageView leftIcon = findViewById(R.id.bill_icon);
+
+        leftIcon.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Toast.makeText(OrderActivity.this, "you clicked", Toast.LENGTH_SHORT).show();
+                startActivity(new Intent(OrderActivity.this, BillingActivity.class));
+            }
+        });
 
 
         DbHelper helper=new DbHelper(this);
