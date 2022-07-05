@@ -36,7 +36,6 @@ public class OrderActivity extends AppCompatActivity {
             }
         });
 
-
         DbHelper helper=new DbHelper(this);
         ArrayList<OrdersModel> list=helper.getOrders();
 
