@@ -7,6 +7,7 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 
+import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -30,7 +31,7 @@ public class MainActivity extends AppCompatActivity {
         binding = ActivityMainBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
-        Toolbar myToolbar = findViewById(R.id.my_toolbar);
+        Toolbar myToolbar = findViewById(R.id.mainActivityToolbar);
         setSupportActionBar(myToolbar);
 
         ArrayList<MainModel> list = new ArrayList<>();
@@ -73,13 +74,13 @@ public class MainActivity extends AppCompatActivity {
             case R.id.action_cart:
                 // User chose the "Favorite" action, mark the current item
                 // as a favorite...
+                startActivity(new Intent(MainActivity.this, OrderActivity.class));
                 return true;
 
             default:
                 // If we got here, the user's action was not recognized.
                 // Invoke the superclass to handle it.
                 return super.onOptionsItemSelected(item);
-
         }
     }
 }
