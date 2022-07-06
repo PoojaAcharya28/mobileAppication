@@ -43,15 +43,15 @@ public class OrderActivity extends AppCompatActivity {
 
 
 
-        ImageView leftIcon = findViewById(R.id.bill_icon);
+//        ImageView leftIcon = findViewById(R.id.bill_icon);
 
-        leftIcon.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Toast.makeText(OrderActivity.this, "you clicked", Toast.LENGTH_SHORT).show();
-                startActivity(new Intent(OrderActivity.this, BillingActivity.class));
-            }
-        });
+//        leftIcon.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                Toast.makeText(OrderActivity.this, "you clicked", Toast.LENGTH_SHORT).show();
+//                startActivity(new Intent(OrderActivity.this, BillingActivity.class));
+//            }
+//        });
 
         DbHelper helper=new DbHelper(this);
         ArrayList<OrdersModel> list=helper.getOrders();

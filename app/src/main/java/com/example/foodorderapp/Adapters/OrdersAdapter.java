@@ -42,7 +42,7 @@ public class OrdersAdapter extends RecyclerView.Adapter<OrdersAdapter.viewHolder
         final OrdersModel model=list.get(position);
         holder.orderImage.setImageResource(model.getOrderImage());
         holder.soldItemName.setText(model.getSoldItemName());
-        holder.orderNumber.setText(model.getOrderNumber());
+//        holder.orderNumber.setText(model.getOrderNumber());
         holder.price.setText(model.getPrice());
 
         holder.itemView.setOnClickListener(new View.OnClickListener() {
@@ -85,12 +85,8 @@ public class OrdersAdapter extends RecyclerView.Adapter<OrdersAdapter.viewHolder
             super(itemView);
             orderImage=itemView.findViewById(R.id.orderImage);
             soldItemName=itemView.findViewById(R.id.orderItemName);
-            orderNumber=itemView.findViewById(R.id.orderNumber);
+//            orderNumber=itemView.findViewById(R.id.orderNumber);
             price=itemView.findViewById(R.id.orderPrice);
-
-
-
-
 
         }
     }

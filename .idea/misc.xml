@@ -17,10 +17,12 @@
         <entry key="..\:/Users/Pooja/AndroidStudioProjects/FoodOrderApp/app/src/main/res/layout/order_sample.xml" value="0.4" />
         <entry key="..\:/Users/Pooja/AndroidStudioProjects/FoodOrderApp/app/src/main/res/layout/sample_mainfood.xml" value="0.4" />
         <entry key="..\:/Users/Pooja/AndroidStudioProjects/FoodOrderApp/app/src/main/res/menu/menu.xml" value="0.16510416666666666" />
+        <entry key="app/src/main/res/drawable/buttonborder.xml" value="0.12" />
+        <entry key="app/src/main/res/layout/activity_billing.xml" value="0.1" />
         <entry key="app/src/main/res/layout/activity_detail.xml" value="0.25" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.1" />
         <entry key="app/src/main/res/layout/activity_order.xml" value="0.1" />
-        <entry key="app/src/main/res/layout/order_sample.xml" value="0.1" />
+        <entry key="app/src/main/res/layout/order_sample.xml" value="0.2" />
         <entry key="app/src/main/res/layout/sample_mainfood.xml" value="0.1" />
       </map>
     </option>

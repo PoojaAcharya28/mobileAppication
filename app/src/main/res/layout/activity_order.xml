@@ -7,23 +7,14 @@
     android:orientation="vertical"
     tools:context=".OrderActivity">
 
-<!--    <include-->
-<!--        layout="@layout/appbar"/>-->
-
-
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/orderToolbar"
         android:layout_width="match_parent"
         android:layout_height="?attr/actionBarSize"
-        android:background="@color/black"
+        android:background="@color/success"
         android:theme="@style/ThemeOverlay.AppCompat.Dark"
         >
 
-        <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/bill_icon"
-            android:src="@drawable/menus"/>
 
     </androidx.appcompat.widget.Toolbar>
 

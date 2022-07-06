@@ -15,7 +15,7 @@ public class DetailActivity extends AppCompatActivity {
     ActivityDetailBinding binding;
     protected ImageView incrementItemCount, decrementItemCount;
     protected TextView itemQuantity;
-    protected static int itemCount=0;
+    protected int itemCount=0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
