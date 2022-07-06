@@ -41,20 +41,12 @@ public class OrderActivity extends AppCompatActivity {
         ab.setDisplayHomeAsUpEnabled(true);
 
 
-
-
-//        ImageView leftIcon = findViewById(R.id.bill_icon);
-
-//        leftIcon.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                Toast.makeText(OrderActivity.this, "you clicked", Toast.LENGTH_SHORT).show();
-//                startActivity(new Intent(OrderActivity.this, BillingActivity.class));
-//            }
-//        });
-
         DbHelper helper=new DbHelper(this);
-        ArrayList<OrdersModel> list=helper.getOrders();
+        ArrayList<OrdersModel> list = helper.getOrders();
+
+        System.out.println("----------------order activity list adapter------------------");
+        System.out.println(list.get(1).getItemQuantity());
+        System.out.println("------------------end----------------");
 
 //        list.add(new OrdersModel(R.drawable.tyu,"cheese Burger","4","55443322"));
 //        list.add(new OrdersModel(R.drawable.tyu,"cheese Burger","4","55443322"));

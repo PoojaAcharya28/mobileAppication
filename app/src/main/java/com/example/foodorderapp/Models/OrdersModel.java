@@ -3,15 +3,15 @@ package com.example.foodorderapp.Models;
 public class OrdersModel {
 
     int orderImage;
-    String soldItemName,price,orderNumber, itemQuantity;
+    String soldItemName,price,orderNumber, itemCount;
 
 
-    public OrdersModel(int orderImage, String soldItemName, String price, String orderNumber, int itemQuantity) {
+    public OrdersModel(int orderImage, String soldItemName, String price, String orderNumber, int itemCount) {
         this.orderImage = orderImage;
         this.soldItemName = soldItemName;
         this.price = price;
         this.orderNumber = orderNumber;
-        this.itemQuantity = String.valueOf(itemQuantity);
+        this.itemCount = String.valueOf(itemCount);
     }
 
     public OrdersModel() {
@@ -51,10 +51,10 @@ public class OrdersModel {
     }
 
     public String getItemQuantity(){
-        return itemQuantity;
+        return itemCount;
     }
 
-    public void setItemQuantity(int itemQuantity){
-        this.itemQuantity = String.valueOf(itemQuantity);
+    public void setItemQuantity(int itemCount){
+        this.itemCount = String.valueOf(itemCount);
     }
 }

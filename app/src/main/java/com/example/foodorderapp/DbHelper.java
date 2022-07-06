@@ -48,18 +48,12 @@ public class DbHelper extends SQLiteOpenHelper {
 
     public boolean insertorder(String name,String phone,int price,int image,String desc,String foodName,int quantity) {
         SQLiteDatabase database = getReadableDatabase();
-        ContentValues values =new ContentValues();
+        ContentValues values = new ContentValues();
 
-        /*
-        id = 0
-        name = 1
-        phone =2
-        price =3
-        image = 4
-        desc = 5
-        foodname = 6
-        quantity = 7
-         */
+        System.out.println("--------------quantity--------------------");
+        System.out.println(quantity);
+        System.out.println("----------------end------------------");
+
         values.put("name",name);
         values.put("phone",phone);
         values.put("price",price);
@@ -103,6 +97,7 @@ public class DbHelper extends SQLiteOpenHelper {
 //        ArrayList<OrdersModel> orders = new ArrayList<>();
         SQLiteDatabase database = this.getWritableDatabase();
         Cursor cursor = database.rawQuery("Select * from orders where id =="+id, null);
+
 //        if(cursor.moveToFirst()) {
 //            while(cursor.moveToNext()) {
 //                OrdersModel model = new OrdersModel();

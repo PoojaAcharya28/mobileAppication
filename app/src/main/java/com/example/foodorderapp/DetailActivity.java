@@ -14,8 +14,8 @@ import com.example.foodorderapp.databinding.ActivityDetailBinding;
 public class DetailActivity extends AppCompatActivity {
     ActivityDetailBinding binding;
     protected ImageView incrementItemCount, decrementItemCount;
-    protected TextView itemQuantity;
-    protected int itemCount=0;
+    protected TextView itemQuantityTextView;
+    protected int itemCount=1;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,7 +27,7 @@ public class DetailActivity extends AppCompatActivity {
 
         incrementItemCount = findViewById(R.id.incrementItemCount);
         decrementItemCount = findViewById(R.id.decrementItemCount);
-        itemQuantity = findViewById(R.id.itemQuantity);
+        itemQuantityTextView = findViewById(R.id.itemQuantity);
 
 //        ----------- From Main Activity "Order" or "Add to Cart" -----------
 
@@ -42,8 +42,19 @@ public class DetailActivity extends AppCompatActivity {
             binding.nameBox.setText(name);
             binding.detailDescription.setText(description);
 
+            System.out.println("----------------------------------");
+            System.out.println(itemCount);
+            System.out.println("----------------------------------");
 
-            binding.addToCardBtn.setOnClickListener((view) -> {
+//            -------------- its proper here --------------
+//            -------------- data is sent ot helper.insertorder --------------
+            binding.addToCartBtn.setOnClickListener((view) -> {
+
+                System.out.println("----------------------------------");
+                System.out.println(itemCount);
+                System.out.println("----------------------------------");
+
+//
                 boolean isInserted = helper.insertorder(
                         binding.nameBox.getText().toString(),
                         binding.phoneBox.getText().toString(),
@@ -75,11 +86,14 @@ public class DetailActivity extends AppCompatActivity {
 
                 binding.nameBox.setText(cursor.getString(1));
                 binding.phoneBox.setText(cursor.getString(2));
-                binding.addToCardBtn.setText("update Now");
+                binding.addToCartBtn.setText("update Now");
 
-                binding.addToCardBtn.setOnClickListener(new View.OnClickListener() {
+                binding.addToCartBtn.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
+
+
+
                         boolean isUpdated = helper.updateOrder(
                                 binding.nameBox.getText().toString(),
                                 binding.phoneBox.getText().toString(),
@@ -110,7 +124,7 @@ public class DetailActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 itemCount++;
-                itemQuantity.setText(String.valueOf(itemCount));
+                itemQuantityTextView.setText(String.valueOf(itemCount));
 //                    Toast.makeText(DetailActivity.this, String.valueOf(itemCount),Toast.LENGTH_SHORT).show();
             }
         });
@@ -119,7 +133,7 @@ public class DetailActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 if(itemCount>0) itemCount--;
-                itemQuantity.setText(String.valueOf(itemCount));
+                itemQuantityTextView.setText(String.valueOf(itemCount));
 //                    Toast.makeText(DetailActivity.this, String.valueOf(itemCount),Toast.LENGTH_SHORT).show();
             }
         });

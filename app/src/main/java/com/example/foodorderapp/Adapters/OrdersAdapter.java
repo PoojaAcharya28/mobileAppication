@@ -51,7 +51,7 @@ public class OrdersAdapter extends RecyclerView.Adapter<OrdersAdapter.viewHolder
 
         holder.orderImage.setImageResource(model.getOrderImage());
         holder.soldItemName.setText(model.getSoldItemName());
-        holder.itemQuantity.setText("1");
+        holder.itemQuantityTextView.setText(model.getItemQuantity());
 //        holder.orderNumber.setText(model.getOrderNumber());
 
         holder.price.setText(model.getPrice());
@@ -89,7 +89,7 @@ public class OrdersAdapter extends RecyclerView.Adapter<OrdersAdapter.viewHolder
 
     public static class viewHolder extends RecyclerView.ViewHolder{
         ImageView orderImage;
-        TextView soldItemName,orderNumber,price, itemQuantity;
+        TextView soldItemName,orderNumber,price, itemQuantityTextView;
         Button removeFromCart;
 
         public viewHolder(@NonNull View itemView) {
@@ -98,7 +98,7 @@ public class OrdersAdapter extends RecyclerView.Adapter<OrdersAdapter.viewHolder
             soldItemName=itemView.findViewById(R.id.orderItemName);
 //            orderNumber=itemView.findViewById(R.id.orderNumber);
             price=itemView.findViewById(R.id.orderPrice);
-            itemQuantity = itemView.findViewById(R.id.itemQuantity);
+            itemQuantityTextView = itemView.findViewById(R.id.itemQuantity);
             removeFromCart = itemView.findViewById(R.id.removeFromCart);
         }
     }
