@@ -29,15 +29,16 @@ public class DetailActivity extends AppCompatActivity {
         decrementItemCount = findViewById(R.id.decrementItemCount);
         itemQuantity = findViewById(R.id.itemQuantity);
 
-        if (getIntent().getIntExtra("type", 0) == 1) {
+//        ----------- From Main Activity "Order" or "Add to Cart" -----------
 
+        if (getIntent().getIntExtra("type", 0) == 1) {
             final int image = getIntent().getIntExtra("image", 0);
             final int price = Integer.parseInt(getIntent().getStringExtra("price"));
             final String name = getIntent().getStringExtra("name");
             final String description = getIntent().getStringExtra("desc");
 
             binding.detailimage.setImageResource(image);
-            binding.priceLbl.setText(String.format("%d", price));
+            binding.priceLbl.setText(String.valueOf(price));
             binding.nameBox.setText(name);
             binding.detailDescription.setText(description);
 
@@ -60,13 +61,15 @@ public class DetailActivity extends AppCompatActivity {
 
             });
 
-        } else {
+        }
+//        ----------- From Order Activity "Add cart" -> "Update Now" -----------
+        else {
             int id = getIntent().getIntExtra("id",0);
             Cursor cursor = helper.getOrderById(id);
 //            Toast.makeText(this, cursor.getString(1), Toast.LENGTH_SHORT).show();
             int image =cursor.getInt(4);
             binding.detailimage.setImageResource(image);
-            binding.priceLbl.setText(String.format("%d", cursor.getInt(3)));
+            binding.priceLbl.setText(String.valueOf(cursor.getInt(3)));
             binding.nameLbl.setText(cursor.getString(6));
             binding.detailDescription.setText(cursor.getString(5));
 
@@ -97,25 +100,24 @@ public class DetailActivity extends AppCompatActivity {
                         Toast.makeText(DetailActivity.this, "Not updated", Toast.LENGTH_SHORT).show();
                 }
             });
-
-            incrementItemCount.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View view) {
-                    itemCount++;
-                    itemQuantity.setText(String.valueOf(itemCount));
-//                    Toast.makeText(DetailActivity.this, String.valueOf(itemCount),Toast.LENGTH_SHORT).show();
-                }
-            });
-
-            decrementItemCount.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View view) {
-                    if(itemCount>0) itemCount--;
-                    itemQuantity.setText(String.valueOf(itemCount));
-//                    Toast.makeText(DetailActivity.this, String.valueOf(itemCount),Toast.LENGTH_SHORT).show();
-                }
-            });
-
         }
+
+        incrementItemCount.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                itemCount++;
+                itemQuantity.setText(String.valueOf(itemCount));
+//                    Toast.makeText(DetailActivity.this, String.valueOf(itemCount),Toast.LENGTH_SHORT).show();
+            }
+        });
+
+        decrementItemCount.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if(itemCount>0) itemCount--;
+                itemQuantity.setText(String.valueOf(itemCount));
+//                    Toast.makeText(DetailActivity.this, String.valueOf(itemCount),Toast.LENGTH_SHORT).show();
+            }
+        });
     }
 }
