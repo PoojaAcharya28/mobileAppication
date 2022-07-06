@@ -82,7 +82,7 @@
                     <LinearLayout
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:background="@drawable/buttonborder"
+                        android:background="@drawable/greyborder"
                         android:padding="4dp"
                         android:orientation="horizontal">
                         <TextView
@@ -112,6 +112,7 @@
         android:weightSum="2"
         android:layout_marginLeft="6dp"
         android:layout_marginTop="6dp"
+        android:layout_marginRight="6dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/linearLayout">
@@ -125,10 +126,9 @@
                 android:id="@+id/saveForLater"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="@drawable/buttonborder"
+                android:background="@drawable/greyborder"
                 android:text="Save for later"
                 android:textColor="@color/greyDarker"
-
                 app:layout_constraintVertical_bias="0.014" />
         </LinearLayout>
 
@@ -141,7 +141,7 @@
                 android:id="@+id/removeFromCart"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="@drawable/buttonborder"
+                android:background="@drawable/greyborder"
                 android:text="Remove"
                 android:textColor="@color/greyDarker"
                 app:layout_constraintVertical_bias="0.014" />

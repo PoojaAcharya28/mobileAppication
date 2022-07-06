@@ -42,7 +42,7 @@ public class DetailActivity extends AppCompatActivity {
             binding.detailDescription.setText(description);
 
 
-            binding.insertBtn.setOnClickListener((view) -> {
+            binding.addToCardBtn.setOnClickListener((view) -> {
                 boolean isInserted = helper.insertorder(
                         binding.nameBox.getText().toString(),
                         binding.phoneBox.getText().toString(),
@@ -72,8 +72,8 @@ public class DetailActivity extends AppCompatActivity {
 
             binding.nameBox.setText(cursor.getString(1));
             binding.phoneBox.setText(cursor.getString(2));
-            binding.insertBtn.setText("update Now");
-            binding.insertBtn.setOnClickListener(new View.OnClickListener() {
+            binding.addToCardBtn.setText("update Now");
+            binding.addToCardBtn.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
                     boolean isUpdated =helper.updateOrder(
