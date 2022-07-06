@@ -5,12 +5,17 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.database.Cursor;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.ImageView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.foodorderapp.databinding.ActivityDetailBinding;
 
 public class DetailActivity extends AppCompatActivity {
     ActivityDetailBinding binding;
+    protected ImageView incrementItemCount, decrementItemCount;
+    protected TextView itemQuantity;
+    protected static int itemCount=0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -19,6 +24,10 @@ public class DetailActivity extends AppCompatActivity {
         setContentView(binding.getRoot());
 
         final DbHelper helper = new DbHelper(this);
+
+        incrementItemCount = findViewById(R.id.incrementItemCount);
+        decrementItemCount = findViewById(R.id.decrementItemCount);
+        itemQuantity = findViewById(R.id.itemQuantity);
 
         if (getIntent().getIntExtra("type", 0) == 1) {
 
@@ -34,8 +43,6 @@ public class DetailActivity extends AppCompatActivity {
 
 
             binding.insertBtn.setOnClickListener((view) -> {
-
-
                 boolean isInserted = helper.insertorder(
                         binding.nameBox.getText().toString(),
                         binding.phoneBox.getText().toString(),
@@ -43,7 +50,7 @@ public class DetailActivity extends AppCompatActivity {
                         image,
                         name,
                         description,
-                        Integer.parseInt(binding.quantity.getText().toString())
+                        Integer.parseInt(binding.itemQuantity.getText().toString())
                 );
                 if (isInserted)
                     Toast.makeText(DetailActivity.this, "Data Sucess.", Toast.LENGTH_LONG).show();
@@ -88,6 +95,24 @@ public class DetailActivity extends AppCompatActivity {
                         Toast.makeText(DetailActivity.this, "Updated", Toast.LENGTH_SHORT).show();
                     else
                         Toast.makeText(DetailActivity.this, "Not updated", Toast.LENGTH_SHORT).show();
+                }
+            });
+
+            incrementItemCount.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    itemCount++;
+                    itemQuantity.setText(String.valueOf(itemCount));
+//                    Toast.makeText(DetailActivity.this, String.valueOf(itemCount),Toast.LENGTH_SHORT).show();
+                }
+            });
+
+            decrementItemCount.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    if(itemCount>0) itemCount--;
+                    itemQuantity.setText(String.valueOf(itemCount));
+//                    Toast.makeText(DetailActivity.this, String.valueOf(itemCount),Toast.LENGTH_SHORT).show();
                 }
             });
 
