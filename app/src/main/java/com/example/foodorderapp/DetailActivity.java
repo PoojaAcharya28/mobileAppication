@@ -51,7 +51,7 @@ public class DetailActivity extends AppCompatActivity {
                         image,
                         name,
                         description,
-                        Integer.parseInt(binding.itemQuantity.getText().toString())
+                        itemCount
                 );
                 if (isInserted)
                     Toast.makeText(DetailActivity.this, "Data Sucess.", Toast.LENGTH_LONG).show();
@@ -64,42 +64,46 @@ public class DetailActivity extends AppCompatActivity {
         }
 //        ----------- From Order Activity "Add cart" -> "Update Now" -----------
         else {
-            int id = getIntent().getIntExtra("id",0);
-            Cursor cursor = helper.getOrderById(id);
-//            Toast.makeText(this, cursor.getString(1), Toast.LENGTH_SHORT).show();
-            int image =cursor.getInt(4);
-            binding.detailimage.setImageResource(image);
-            binding.priceLbl.setText(String.valueOf(cursor.getInt(3)));
-            binding.nameLbl.setText(cursor.getString(6));
-            binding.detailDescription.setText(cursor.getString(5));
+            int id = getIntent().getIntExtra("id", 0);
+            try {
+                Cursor cursor = helper.getOrderById(id);
+                int image = cursor.getInt(4);
+                binding.detailimage.setImageResource(image);
+                binding.priceLbl.setText(String.valueOf(cursor.getInt(3)));
+                binding.nameLbl.setText(cursor.getString(6));
+                binding.detailDescription.setText(cursor.getString(5));
 
-            binding.nameBox.setText(cursor.getString(1));
-            binding.phoneBox.setText(cursor.getString(2));
-            binding.addToCardBtn.setText("update Now");
-            binding.addToCardBtn.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View view) {
-                    boolean isUpdated =helper.updateOrder(
-                            binding.nameBox.getText().toString(),
-                            binding.phoneBox.getText().toString(),
-                            Integer.parseInt(binding.priceLbl.getText().toString()),
-                            image,
-                            binding.detailDescription.getText().toString(),
-                            binding.nameLbl.getText().toString(),
+                binding.nameBox.setText(cursor.getString(1));
+                binding.phoneBox.setText(cursor.getString(2));
+                binding.addToCardBtn.setText("update Now");
 
-                            1,
-                            id
+                binding.addToCardBtn.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        boolean isUpdated = helper.updateOrder(
+                                binding.nameBox.getText().toString(),
+                                binding.phoneBox.getText().toString(),
+                                Integer.parseInt(binding.priceLbl.getText().toString()),
+                                image,
+                                binding.detailDescription.getText().toString(),
+                                binding.nameLbl.getText().toString(),
+
+                                1,
+                                id
 
 
+                        );
 
-                            );
+                        if (isUpdated)
+                            Toast.makeText(DetailActivity.this, "Updated", Toast.LENGTH_SHORT).show();
+                        else
+                            Toast.makeText(DetailActivity.this, "Not updated", Toast.LENGTH_SHORT).show();
+                    }
+                });
+            } catch (Exception e) {
+                Toast.makeText(DetailActivity.this, "Error handled", Toast.LENGTH_SHORT).show();
+            }
 
-                    if(isUpdated)
-                        Toast.makeText(DetailActivity.this, "Updated", Toast.LENGTH_SHORT).show();
-                    else
-                        Toast.makeText(DetailActivity.this, "Not updated", Toast.LENGTH_SHORT).show();
-                }
-            });
         }
 
         incrementItemCount.setOnClickListener(new View.OnClickListener() {

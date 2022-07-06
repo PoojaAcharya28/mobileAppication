@@ -76,7 +76,7 @@
                             android:textColor="@color/greyDarker"
                             android:textSize="18dp"
                             android:textStyle="bold" />
-
+q
                     </LinearLayout>
 
                     <LinearLayout
@@ -90,11 +90,13 @@
                             android:layout_height="wrap_content"
                             android:text="Qty:"
                             />
-                        <Spinner
-                            android:id="@+id/quantityDropdown"
-                            android:layout_width="40dp"
+                        <TextView
+                            android:id="@+id/itemQuantity"
+                            android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:spinnerMode="dropdown"/>
+                            android:padding="4dp"
+                            android:text="1"
+                            />
                     </LinearLayout>
 
 
