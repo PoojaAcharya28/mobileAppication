@@ -43,8 +43,6 @@ public class MainAdapter extends RecyclerView.Adapter<MainAdapter.viewholder>{
         holder.description.setText(model.getDescription());
 
         holder.itemView.setOnClickListener((view) -> {
-
-
                 Intent intent=new Intent(context, DetailActivity.class);
                 intent.putExtra("image",model.getImage());
                 intent.putExtra("price",model.getPrice());
@@ -52,7 +50,6 @@ public class MainAdapter extends RecyclerView.Adapter<MainAdapter.viewholder>{
                 intent.putExtra("name",model.getName());
                 intent.putExtra("type",1);
                 context.startActivity(intent);
-
         });
 
     }
@@ -62,7 +59,7 @@ public class MainAdapter extends RecyclerView.Adapter<MainAdapter.viewholder>{
         return list.size();
     }
 
-    public class viewholder extends RecyclerView.ViewHolder{
+    public static class viewholder extends RecyclerView.ViewHolder{
         ImageView foodImage;
         TextView mainName,price,description;
 
