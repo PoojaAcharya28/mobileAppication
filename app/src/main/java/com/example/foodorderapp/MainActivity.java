@@ -9,17 +9,45 @@ import android.view.MenuItem;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
+import androidx.recyclerview.widget.LinearLayoutManager;
+
+import com.example.foodorderapp.Adapters.MainAdapter;
+import com.example.foodorderapp.Models.MainModel;
+import com.example.foodorderapp.databinding.ActivityMainBinding;
+
+import java.util.ArrayList;
 
 
 public class MainActivity extends AppCompatActivity {
+
+    ActivityMainBinding binding;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        binding = ActivityMainBinding.inflate(getLayoutInflater());
+        setContentView(binding.getRoot());
+
         Toolbar myToolbar = findViewById(R.id.my_toolbar);
         setSupportActionBar(myToolbar);
+
+        ArrayList<MainModel> list = new ArrayList<>();
+
+        list.add(new MainModel(R.drawable.abc, "Burger", "90", "Chicken burger with extra cheese"));
+        list.add(new MainModel(R.drawable.abc, "Machine gun", "100", "Chicken burger with extra cheese"));
+        list.add(new MainModel(R.drawable.abc, "Burger", "5", "Chicken burger with extra cheese"));
+        list.add(new MainModel(R.drawable.abc, "Burger", "5", "Chicken burger with extra cheese"));
+        list.add(new MainModel(R.drawable.abc, "Burger", "165", "Chicken burger with extra cheese"));
+        list.add(new MainModel(R.drawable.tyu, "samosa", "155", "Chicken burger with extra cheese"));
+
+
+        MainAdapter adapter = new MainAdapter(list, this);
+        binding.activityMainRecycleView.setAdapter(adapter);
+
+        LinearLayoutManager layoutManager = new LinearLayoutManager(this);
+        binding.activityMainRecycleView.setLayoutManager(layoutManager);
 
 
 
