@@ -54,19 +54,26 @@ public class OrderActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 String all="";
+                String amt = "";
                 SQLiteDatabase database = helper1.getWritableDatabase();
                 Cursor cursor = database.rawQuery("Select foodname,price,quantity from orders", null);
+                int sum = 0;
                 while(cursor.moveToNext())
                 {
-                    String i=cursor.getString(0);
-                    String n=cursor.getString(1);
-                    String p=cursor.getString(2);
-                    all+="Name: "+i+"\nprice: "+n+"\nQuantity: "+p+"\n\n";
-
+                    String name=cursor.getString(0);
+                    String price=cursor.getString(1);
+                    String quan=cursor.getString(2);
+                    int p = Integer.parseInt(price);
+                    int q = Integer.parseInt(quan);
+                    int pr = p*q;
+                    all+="--------------------------------------------------\nName: "+name+"\nQuantity: "+q+"\nPrice: "+pr+"\n\n" +
+                            "--------------------------------------------------\n";
+                    sum +=pr;
                 }
                 AlertDialog.Builder alert=new AlertDialog.Builder(OrderActivity.this);
                 alert.setTitle("Your Orders");
-                alert.setMessage(all);
+                amt = all +"\nTotal Price : "+sum;
+                alert.setMessage(amt);
                 AlertDialog a=alert.create();
                 a.show();
             }
