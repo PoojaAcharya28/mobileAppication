@@ -101,7 +101,7 @@ public class OrdersAdapter extends RecyclerView.Adapter<OrdersAdapter.viewHolder
             super(itemView);
             orderImage=itemView.findViewById(R.id.orderImage);
             soldItemName=itemView.findViewById(R.id.orderItemName);
-            orderNumber=itemView.findViewById(R.id.quan);
+            orderNumber=itemView.findViewById(R.id.itemQuantity);
             price=itemView.findViewById(R.id.orderPrice);
             itemQuantityTextView = itemView.findViewById(R.id.itemQuantity);
             removeFromCart = itemView.findViewById(R.id.removeFromCart);
