@@ -29,6 +29,7 @@ public class DetailActivity extends AppCompatActivity {
         decrementItemCount = findViewById(R.id.decrementItemCount);
         itemQuantity = findViewById(R.id.itemQuantity);
 
+        //insert operation begins.....
         if (getIntent().getIntExtra("type", 0) == 1) {
 
             final int image = getIntent().getIntExtra("image", 0);
@@ -38,7 +39,8 @@ public class DetailActivity extends AppCompatActivity {
 
             binding.detailimage.setImageResource(image);
             binding.priceLbl.setText(String.format("%d", price));
-            binding.nameBox.setText(name);
+            binding.nameBox.setText("");
+            binding.nameLbl.setText(name);
             binding.detailDescription.setText(description);
 
 
@@ -58,9 +60,34 @@ public class DetailActivity extends AppCompatActivity {
                     Toast.makeText(DetailActivity.this, "ERROR.", Toast.LENGTH_LONG).show();
 
 
+
+
+
             });
 
-        } else {
+
+
+            incrementItemCount.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    itemCount++;
+
+                    itemQuantity.setText(String.valueOf(itemCount));
+//                    Toast.makeText(DetailActivity.this, String.valueOf(itemCount),Toast.LENGTH_SHORT).show();
+                }
+            });
+
+            decrementItemCount.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    if(itemCount>0) itemCount--;
+                    itemQuantity.setText(String.valueOf(itemCount));
+//                    Toast.makeText(DetailActivity.this, String.valueOf(itemCount),Toast.LENGTH_SHORT).show();
+                }
+            });
+
+        }// insert ends update code begins
+        else {
             //fetch data from db
             int id = getIntent().getIntExtra("id",0);
             Cursor cursor = helper.getOrderById(id);
@@ -68,8 +95,10 @@ public class DetailActivity extends AppCompatActivity {
             int image =cursor.getInt(4);
             binding.detailimage.setImageResource(image);
             binding.priceLbl.setText(String.format("%d", cursor.getInt(3)));
-            binding.nameLbl.setText(cursor.getString(6));
-            binding.detailDescription.setText(cursor.getString(5));
+            binding.nameLbl.setText(cursor.getString(7));     //6
+            binding.detailDescription.setText(cursor.getString(6));   //5
+            binding.itemQuantity.setText(cursor.getString(5));   //changes  added extra
+
 
             binding.nameBox.setText(cursor.getString(1));
             binding.phoneBox.setText(cursor.getString(2));
@@ -85,7 +114,9 @@ public class DetailActivity extends AppCompatActivity {
                             binding.detailDescription.getText().toString(),
                             binding.nameLbl.getText().toString(),
 
-                            1,
+                            Integer.parseInt(binding.itemQuantity.getText().toString()),
+
+                            //1,
                             id
 
 
@@ -102,8 +133,13 @@ public class DetailActivity extends AppCompatActivity {
             incrementItemCount.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    itemCount++;
-                    itemQuantity.setText(String.valueOf(itemCount));
+                    String itemqua=itemQuantity.getText().toString();
+                    int itemCounts=Integer.parseInt(itemqua);
+                    itemCounts++;
+                    //itemCount++;
+                    //Toast.makeText(DetailActivity.this, itemCounts, Toast.LENGTH_SHORT).show();
+                    System.out.println(itemCounts);
+                    itemQuantity.setText(String.valueOf(itemCounts));
 //                    Toast.makeText(DetailActivity.this, String.valueOf(itemCount),Toast.LENGTH_SHORT).show();
                 }
             });
@@ -111,8 +147,15 @@ public class DetailActivity extends AppCompatActivity {
             decrementItemCount.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    if(itemCount>0) itemCount--;
-                    itemQuantity.setText(String.valueOf(itemCount));
+                    String itemqua=itemQuantity.getText().toString();
+                    int itemCounts=Integer.parseInt(itemqua);
+                    if(itemCounts>0)
+                    {
+
+                        itemCounts--;
+                        itemQuantity.setText(String.valueOf(itemCounts));
+                    }
+
 //                    Toast.makeText(DetailActivity.this, String.valueOf(itemCount),Toast.LENGTH_SHORT).show();
                 }
             });
