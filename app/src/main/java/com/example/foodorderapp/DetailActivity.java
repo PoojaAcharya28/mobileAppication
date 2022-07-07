@@ -42,7 +42,7 @@ public class DetailActivity extends AppCompatActivity {
             binding.detailDescription.setText(description);
 
 
-            binding.insertBtn.setOnClickListener((view) -> {
+            binding.orderNowBtn.setOnClickListener((view) -> {
                 boolean isInserted = helper.insertorder(
                         binding.nameBox.getText().toString(),
                         binding.phoneBox.getText().toString(),
@@ -61,6 +61,7 @@ public class DetailActivity extends AppCompatActivity {
             });
 
         } else {
+            //fetch data from db
             int id = getIntent().getIntExtra("id",0);
             Cursor cursor = helper.getOrderById(id);
 //            Toast.makeText(this, cursor.getString(1), Toast.LENGTH_SHORT).show();
@@ -72,8 +73,8 @@ public class DetailActivity extends AppCompatActivity {
 
             binding.nameBox.setText(cursor.getString(1));
             binding.phoneBox.setText(cursor.getString(2));
-            binding.insertBtn.setText("update Now");
-            binding.insertBtn.setOnClickListener(new View.OnClickListener() {
+            binding.orderNowBtn.setText("update Now");
+            binding.orderNowBtn.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
                     boolean isUpdated =helper.updateOrder(

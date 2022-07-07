@@ -79,7 +79,7 @@ public class DbHelper extends SQLiteOpenHelper {
 
     }
 
-
+//code to get data fro db
     public ArrayList<OrdersModel> getOrders() {
         ArrayList<OrdersModel> orders = new ArrayList<>();
         SQLiteDatabase database = this.getWritableDatabase();
@@ -98,7 +98,7 @@ public class DbHelper extends SQLiteOpenHelper {
         database.close();
         return orders;
     }
-
+//code for update
     public Cursor getOrderById(int id) {
 //        ArrayList<OrdersModel> orders = new ArrayList<>();
         SQLiteDatabase database = this.getWritableDatabase();

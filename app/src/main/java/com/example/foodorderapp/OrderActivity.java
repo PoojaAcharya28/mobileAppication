@@ -52,7 +52,7 @@ public class OrderActivity extends AppCompatActivity {
 //                startActivity(new Intent(OrderActivity.this, BillingActivity.class));
 //            }
 //        });
-
+// code to get data from db
         DbHelper helper=new DbHelper(this);
         ArrayList<OrdersModel> list=helper.getOrders();
 
