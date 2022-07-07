@@ -72,7 +72,6 @@ public class OrdersAdapter extends RecyclerView.Adapter<OrdersAdapter.viewHolder
 //        });
 
         holder.removeFromCart.setOnClickListener(new View.OnClickListener() {
-
             @Override
             public void onClick(View view) {
                 try{
