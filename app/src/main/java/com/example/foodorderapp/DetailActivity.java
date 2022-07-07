@@ -30,6 +30,7 @@ public class DetailActivity extends AppCompatActivity {
         itemQuantityTextView = findViewById(R.id.itemQuantity);
 
 
+
 //        ----------- From Main Activity "Order" or "Add to Cart" -----------
 
         if (getIntent().getIntExtra("type", 0) == 1) {
@@ -47,6 +48,21 @@ public class DetailActivity extends AppCompatActivity {
 
             binding.detailDescription.setText(description);
 
+            binding.addToCartBtn.setOnClickListener((view) -> {
+                boolean isInserted = helper.insertorder(
+                        binding.nameBox.getText().toString(),
+                        binding.phoneBox.getText().toString(),
+                        price,
+                        image,
+                        name,
+                        description,
+                        itemCount
+                );
+                if (isInserted)
+                    Toast.makeText(DetailActivity.this, "Data Sucess.", Toast.LENGTH_LONG).show();
+                else
+                    Toast.makeText(DetailActivity.this, "ERROR.", Toast.LENGTH_LONG).show();
+            });
 
 
         }
