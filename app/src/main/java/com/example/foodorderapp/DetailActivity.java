@@ -45,7 +45,9 @@ public class DetailActivity extends AppCompatActivity {
             binding.priceLbl.setText(String.valueOf(price));
             binding.nameBox.setText(name);
 
-            binding.detailDescription.setText(description);;
+            binding.detailDescription.setText(description);
+
+
 
         }
 //        ----------- From Order Activity "Add cart" -> "Update Now" -----------
