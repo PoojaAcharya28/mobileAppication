@@ -50,8 +50,6 @@ public class MainActivity extends AppCompatActivity {
         LinearLayoutManager layoutManager = new LinearLayoutManager(this);
         binding.activityMainRecycleView.setLayoutManager(layoutManager);
 
-
-
     }
 
     @Override
