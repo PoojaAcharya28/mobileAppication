@@ -36,12 +36,17 @@ public class MainActivity extends AppCompatActivity {
 
         ArrayList<MainModel> list = new ArrayList<>();
 
-        list.add(new MainModel(R.drawable.abc, "Burger", "90", "Chicken burger with extra cheese"));
-        list.add(new MainModel(R.drawable.abc, "Machine gun", "100", "Chicken burger with extra cheese"));
-        list.add(new MainModel(R.drawable.abc, "Burger", "5", "Chicken burger with extra cheese"));
-        list.add(new MainModel(R.drawable.abc, "Burger", "5", "Chicken burger with extra cheese"));
-        list.add(new MainModel(R.drawable.abc, "Burger", "165", "Chicken burger with extra cheese"));
-        list.add(new MainModel(R.drawable.tyu, "samosa", "155", "Chicken burger with extra cheese"));
+        list.add(new MainModel(R.drawable.roastedcoffebean, "Roasted Coffee Bean", "450", "Roast Coffee Price Range:Rs 450 per kg"));
+        list.add(new MainModel(R.drawable.wheattt, "Wheat", "50", "Wheat  Price Range-Rs 50 per kg"));
+        list.add(new MainModel(R.drawable.buckywheat, "Bucky Wheat", "60", "Bucky Wheat Price Range:Rs 60 per kg"));
+        list.add(new MainModel(R.drawable.barley, "Barley", "119", "Barley Price Range:Rs 119 per kg"));
+        list.add(new MainModel(R.drawable.teffgrain, "Teff Grain", "500", "Teff grain Price Range:Rs 500 per kg"));
+        list.add(new MainModel(R.drawable.rye, "Rye", "150", "Rye Price Range:Rs 150 per kg"));
+        list.add(new MainModel(R.drawable.rice, "Rice", "65", "Rice Price Range:Rs 65 per kg"));
+        list.add(new MainModel(R.drawable.redrice, "Red Rice", "96", "Red Rice Price Range:Rs 96 per kg"));
+        list.add(new MainModel(R.drawable.oats, "Oats", "190", "Oats Price Range:Rs 190 per kg"));
+        list.add(new MainModel(R.drawable.milletsjpg, "Millets", "28", "Millets Price Range:Rs 28 per kg"));
+        //list.add(new MainModel(R.drawable.maize, "Maize", "", "Barley Price Range:Rs 25 per kg"));
 
 
         MainAdapter adapter = new MainAdapter(list, this);
