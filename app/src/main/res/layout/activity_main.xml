@@ -1,31 +1,33 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.appcompat.widget.LinearLayoutCompat xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".MainActivity"
-    android:orientation="vertical"
+    android:orientation="vertical">
 
-    >
 
-    <include
-        layout="@layout/appbar"/>
-
-<!--    <Button-->
-<!--        android:id="@+id/order2"-->
-<!--        android:layout_width="72dp"-->
-<!--        android:layout_height="62dp"-->
-<!--        android:background="@drawable/menus">-->
-
-<!--    </Button>-->
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/mainActivityToolbar"
+        android:layout_width="409dp"
+        android:layout_height="wrap_content"
+        android:background="@color/teal_200"
+        android:minHeight="?attr/actionBarSize"
+        android:theme="?attr/actionBarTheme"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recycleView"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        tools:layout_editor_absoluteX="1dp"
-        tools:layout_editor_absoluteY="1dp"
-        tools:listitem="@layout/sample_mainfood"/>
+        android:id="@+id/activityMainRecycleView"
+        android:layout_width="409dp"
+        android:layout_height="673dp"
+        tools:listitem="@layout/sample_mainfood"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/my_toolbar" />
 
-</LinearLayout>
+
+</androidx.appcompat.widget.LinearLayoutCompat>

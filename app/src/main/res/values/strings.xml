@@ -1,4 +1,7 @@
 <resources>
-    <string name="app_name">Food Order App</string>
+    <string name="app_name">Market Management</string>
     <string name="descriptionFood">Let’s eat some diet food while we wait for the steak to cook</string>
+    <string name="action_cart">Cart</string>
+    <string name="action_favorite">Fav</string>
+    <string name="action_settings">Settings</string>
 </resources>

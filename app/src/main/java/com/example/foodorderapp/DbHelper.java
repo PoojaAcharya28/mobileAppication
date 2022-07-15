@@ -79,26 +79,26 @@ public class DbHelper extends SQLiteOpenHelper {
 
     }
 
-
+//code to get data fro db
     public ArrayList<OrdersModel> getOrders() {
         ArrayList<OrdersModel> orders = new ArrayList<>();
         SQLiteDatabase database = this.getWritableDatabase();
         Cursor cursor = database.rawQuery("Select id,foodname,image,price from orders", null);
         if(cursor.moveToFirst()) {
-            while(cursor.moveToNext()) {
+            do {
                 OrdersModel model = new OrdersModel();
                 model.setOrderNumber(cursor.getInt(0)+ "");
                 model.setSoldItemName(cursor.getString(1));
                 model.setOrderImage(cursor.getInt(2));
                 model.setPrice(cursor.getInt(3) + "");
                 orders.add(model);
-            }
+            }while(cursor.moveToNext());
         }
         cursor.close();
         database.close();
         return orders;
     }
-
+//code for update
     public Cursor getOrderById(int id) {
 //        ArrayList<OrdersModel> orders = new ArrayList<>();
         SQLiteDatabase database = this.getWritableDatabase();

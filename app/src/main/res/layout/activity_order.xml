@@ -7,31 +7,29 @@
     android:orientation="vertical"
     tools:context=".OrderActivity">
 
-<!--    <include-->
-<!--        layout="@layout/appbar"/>-->
-
-
     <androidx.appcompat.widget.Toolbar
-        xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:app="http://schemas.android.com/apk/res-auto"
+        app:title="My Orders"
+        android:id="@+id/orderToolbar"
         android:layout_width="match_parent"
         android:layout_height="?attr/actionBarSize"
-        android:background="@color/black"
-        android:id="@+id/myToolBar"
+        android:background="@color/success"
         android:theme="@style/ThemeOverlay.AppCompat.Dark"
         >
 
-        <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/bill_icon"
-            android:src="@drawable/menus"/>
 
     </androidx.appcompat.widget.Toolbar>
+
+    <Button
+        android:id="@+id/checkOut"
+        android:layout_width="176dp"
+        android:layout_height="48dp"
+        android:layout_alignParentBottom="true"
+        android:text="Check Out" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/orderRecyclerView"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         tools:listitem="@layout/order_sample" />
+
 </LinearLayout>
