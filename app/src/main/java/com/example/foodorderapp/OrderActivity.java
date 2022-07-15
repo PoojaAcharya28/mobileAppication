@@ -4,11 +4,14 @@ import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
+import androidx.print.PrintHelper;
 import androidx.recyclerview.widget.LinearLayoutManager;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
+import android.graphics.Bitmap;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -46,11 +49,22 @@ public class OrderActivity extends AppCompatActivity {
 
         checkout =findViewById(R.id.checkOut);
 
+
+//        checkout.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                Intent intent = new Intent(OrderActivity.this,BillingActivity.class);
+//                startActivity(intent);
+//            }
+//        });
+
         final DbHelper helper1 = new DbHelper(this);
         int id = getIntent().getIntExtra("id",0);
         Cursor cursor = helper1.getOrderById(id);
 
         checkout.setOnClickListener(new View.OnClickListener() {
+
+
             @Override
             public void onClick(View view) {
                 String all="";
@@ -74,8 +88,40 @@ public class OrderActivity extends AppCompatActivity {
                 alert.setTitle("Your Orders");
                 amt = all +"\nTotal Price : "+sum;
                 alert.setMessage(amt);
+                alert.setPositiveButton("confirm", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+                        Toast.makeText(OrderActivity.this, "Your order has been confirmed", Toast.LENGTH_SHORT).show();
+
+
+                        //code for taking the pdf of invoice...............
+                        View view = getWindow().getDecorView().findViewById(android.R.id.content);
+                        view.setDrawingCacheEnabled(true);
+                        view.measure(View.MeasureSpec.makeMeasureSpec(0, View.MeasureSpec.UNSPECIFIED),View. MeasureSpec.makeMeasureSpec(0, View.MeasureSpec.UNSPECIFIED));
+                        view.layout(0, 0, view.getMeasuredWidth(), view.getMeasuredHeight());
+                        view.buildDrawingCache(true);
+
+                        Bitmap bitmap = Bitmap.createBitmap(view.getDrawingCache());
+                        view.setDrawingCacheEnabled(false);
+                        PrintHelper photoPrinter = new PrintHelper(OrderActivity.this);
+                        photoPrinter.setScaleMode(PrintHelper.SCALE_MODE_FIT);
+                        photoPrinter.printBitmap("print", bitmap);
+
+
+
+                    }
+                });
+                alert.setNegativeButton("Deny", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+                        Toast.makeText(OrderActivity.this, "Your order has been cancelled", Toast.LENGTH_SHORT).show();
+                        dialogInterface.dismiss();
+                    }
+                });
                 AlertDialog a=alert.create();
                 a.show();
+
+
             }
         });
 
