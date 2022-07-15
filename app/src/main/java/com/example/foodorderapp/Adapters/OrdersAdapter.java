@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -56,10 +57,12 @@ public class OrdersAdapter extends RecyclerView.Adapter<OrdersAdapter.viewHolder
             }
         });
 
-        holder.itemView.setOnLongClickListener(new View.OnLongClickListener() {
+        holder.removeFromCart.setOnClickListener(new View.OnClickListener() {
             @Override
-            public boolean onLongClick(View view) {
+            public void onClick(View view) {
                 DbHelper helper = new DbHelper(context);
+                list.remove(model);
+                notifyDataSetChanged();
                 if(helper.deleteOrder(model.getOrderNumber()) > 0) {
                     Toast.makeText(context, "Deleted", Toast.LENGTH_SHORT).show();
                 }
@@ -67,7 +70,6 @@ public class OrdersAdapter extends RecyclerView.Adapter<OrdersAdapter.viewHolder
                 {
                     Toast.makeText(context, "Error", Toast.LENGTH_SHORT).show();
                 }
-                return false;
             }
         });
     }
@@ -81,6 +83,7 @@ public class OrdersAdapter extends RecyclerView.Adapter<OrdersAdapter.viewHolder
     public class viewHolder extends RecyclerView.ViewHolder{
         ImageView orderImage;
         TextView soldItemName,orderNumber,price;
+        Button removeFromCart;
 
         public viewHolder(@NonNull View itemView) {
             super(itemView);
@@ -88,6 +91,7 @@ public class OrdersAdapter extends RecyclerView.Adapter<OrdersAdapter.viewHolder
             soldItemName=itemView.findViewById(R.id.orderItemName);
             orderNumber=itemView.findViewById(R.id.quan);
             price=itemView.findViewById(R.id.orderPrice);
+            removeFromCart = itemView.findViewById(R.id.removeFromCart);
 
         }
     }
