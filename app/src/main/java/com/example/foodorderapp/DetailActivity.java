@@ -61,27 +61,6 @@ public class DetailActivity extends AppCompatActivity {
 
             });
 
-
-
-            incrementItemCount.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View view) {
-                    itemCount++;
-
-                    itemQuantity.setText(String.valueOf(itemCount));
-//                    Toast.makeText(DetailActivity.this, String.valueOf(itemCount),Toast.LENGTH_SHORT).show();
-                }
-            });
-
-            decrementItemCount.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View view) {
-                    if(itemCount>0) itemCount--;
-                    itemQuantity.setText(String.valueOf(itemCount));
-//                    Toast.makeText(DetailActivity.this, String.valueOf(itemCount),Toast.LENGTH_SHORT).show();
-                }
-            });
-
         }// insert ends update code begins
         else {
             //fetch data from db
@@ -111,12 +90,8 @@ public class DetailActivity extends AppCompatActivity {
                             binding.nameLbl.getText().toString(),
 
                             Integer.parseInt(binding.itemQuantity.getText().toString()),
-
                             //1,
                             id
-
-
-
                             );
 
                     if(isUpdated)
@@ -125,37 +100,25 @@ public class DetailActivity extends AppCompatActivity {
                         Toast.makeText(DetailActivity.this, "Not updated", Toast.LENGTH_SHORT).show();
                 }
             });
-
-            incrementItemCount.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View view) {
-                    String itemqua=itemQuantity.getText().toString();
-                    int itemCounts=Integer.parseInt(itemqua);
-                    itemCounts++;
-                    //itemCount++;
-                    //Toast.makeText(DetailActivity.this, itemCounts, Toast.LENGTH_SHORT).show();
-                    System.out.println(itemCounts);
-                    itemQuantity.setText(String.valueOf(itemCounts));
-//                    Toast.makeText(DetailActivity.this, String.valueOf(itemCount),Toast.LENGTH_SHORT).show();
-                }
-            });
-
-            decrementItemCount.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View view) {
-                    String itemqua=itemQuantity.getText().toString();
-                    int itemCounts=Integer.parseInt(itemqua);
-                    if(itemCounts>0)
-                    {
-
-                        itemCounts--;
-                        itemQuantity.setText(String.valueOf(itemCounts));
-                    }
-
-//                    Toast.makeText(DetailActivity.this, String.valueOf(itemCount),Toast.LENGTH_SHORT).show();
-                }
-            });
-
         }
+
+        incrementItemCount.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                itemCount++;
+
+                itemQuantity.setText(String.valueOf(itemCount));
+//                    Toast.makeText(DetailActivity.this, String.valueOf(itemCount),Toast.LENGTH_SHORT).show();
+            }
+        });
+
+        decrementItemCount.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if(itemCount>0) itemCount--;
+                itemQuantity.setText(String.valueOf(itemCount));
+//                    Toast.makeText(DetailActivity.this, String.valueOf(itemCount),Toast.LENGTH_SHORT).show();
+            }
+        });
     }
 }
