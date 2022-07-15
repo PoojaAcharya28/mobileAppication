@@ -12,7 +12,7 @@
         android:id="@+id/detailActivityToolbar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@color/teal_200"
+        android:background="@color/yellow"
         android:minHeight="?attr/actionBarSize"
         android:theme="?attr/actionBarTheme"
         app:layout_constraintEnd_toEndOf="parent"
@@ -180,7 +180,7 @@
                 android:layout_width="150dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:background="@color/white"
+                android:background="@drawable/background_add_cart_btn"
                 android:text="Add Cart"
                 android:textColor="@color/black"
                 app:layout_constraintVertical_bias="0.0" />
@@ -190,7 +190,7 @@
                 android:layout_width="150dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:background="#4BB543"
+                android:background="@color/yellow"
                 android:text="Order Now"
                 android:textColor="@color/white"
                 app:layout_constraintVertical_bias="0.0" />
@@ -212,7 +212,7 @@
             android:layout_width="150dp"
             android:layout_height="match_parent"
             android:layout_weight="2"
-            android:background="#4BB543"
+            android:background="@color/yellow"
             android:text="Update Item"
             android:textColor="@color/white"
             app:layout_constraintVertical_bias="0.0" />
