@@ -8,6 +8,7 @@
     tools:context=".OrderActivity">
 
     <androidx.appcompat.widget.Toolbar
+        app:title="My Orders"
         android:id="@+id/orderToolbar"
         android:layout_width="match_parent"
         android:layout_height="?attr/actionBarSize"
