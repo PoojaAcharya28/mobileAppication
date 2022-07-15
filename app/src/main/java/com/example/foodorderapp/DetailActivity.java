@@ -29,6 +29,8 @@ public class DetailActivity extends AppCompatActivity {
         decrementItemCount = findViewById(R.id.decrementItemCount);
         itemQuantity = findViewById(R.id.itemQuantity);
 
+
+//        ------------------- insert action (From Main Activity)-------------------
         //insert operation begins.....
         if (getIntent().getIntExtra("type", 0) == 1) {
 
@@ -62,12 +64,18 @@ public class DetailActivity extends AppCompatActivity {
             });
 
         }// insert ends update code begins
+
+//        ------------------- update action (From Order Activity)-------------------
+
         else {
             //fetch data from db
             int id = getIntent().getIntExtra("id",0);
             Cursor cursor = helper.getOrderById(id);
-//            Toast.makeText(this, cursor.getString(1), Toast.LENGTH_SHORT).show();
             int image =cursor.getInt(4);
+
+            binding.addNOrderLayout.setVisibility(View.GONE);
+            binding.updateBtnLayout.setVisibility(View.VISIBLE);
+
             binding.detailimage.setImageResource(image);
             binding.priceLbl.setText(String.format("%d", cursor.getInt(3)));
             binding.nameLbl.setText(cursor.getString(7));     //6
@@ -77,8 +85,8 @@ public class DetailActivity extends AppCompatActivity {
 
             binding.nameBox.setText(cursor.getString(1));
             binding.phoneBox.setText(cursor.getString(2));
-            binding.orderNowBtn.setText("update Now");
-            binding.orderNowBtn.setOnClickListener(new View.OnClickListener() {
+
+            binding.updateItemBtn.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
                     boolean isUpdated =helper.updateOrder(
