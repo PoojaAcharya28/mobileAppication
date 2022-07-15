@@ -44,7 +44,7 @@ public class DetailActivity extends AppCompatActivity {
             binding.detailDescription.setText(description);
 
 
-            binding.orderNowBtn.setOnClickListener((view) -> {
+            binding.addToCardBtn.setOnClickListener((view) -> {
                 boolean isInserted = helper.insertorder(
                         binding.nameBox.getText().toString(),
                         binding.phoneBox.getText().toString(),
@@ -58,10 +58,6 @@ public class DetailActivity extends AppCompatActivity {
                     Toast.makeText(DetailActivity.this, "Data Sucess.", Toast.LENGTH_LONG).show();
                 else
                     Toast.makeText(DetailActivity.this, "ERROR.", Toast.LENGTH_LONG).show();
-
-
-
-
 
             });
 
